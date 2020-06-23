@@ -1,8 +1,42 @@
 export default {
 	canvasSize: 600,
+	navbarRadius: 200,
+	optionRadius: 25,
 	options: [{
 		name: 'NodeJS',
+		icon: './assets/bootstrap.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/c.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/cplusplus.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/css3.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/firebase.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/html5.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/javascript.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/jquery.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/mongodb.svg',
+	}, {
+		name: 'ReactJS',
 		icon: './assets/node-dot-js.svg',
-		desc: 'NodeJS is a javascript runtime. I love NodeJS.'
+	}, {
+		name: 'ReactJS',
+		icon: './assets/python.svg',
+	}, {
+		name: 'ReactJS',
+		icon: './assets/react.svg',
 	}]
 };
