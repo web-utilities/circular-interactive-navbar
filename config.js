@@ -2,42 +2,54 @@ export default {
 	canvasSize: 600,
 	navbarRadius: 200,
 	optionRadius: 25,
-	boundaryRandomness: 0.1,
+	boundaryRandomness: 0.2,
 	options: [{
 		name: 'Bootstrap',
 		icon: './assets/bootstrap.svg',
+		color: '#563d7c'
 	}, {
-		name: 'ReactJS',
+		name: 'C',
 		icon: './assets/c.svg',
+		color: '#03599c'
 	}, {
-		name: 'ReactJS',
+		name: 'C++',
 		icon: './assets/cplusplus.svg',
+		color: '#004482'
 	}, {
-		name: 'ReactJS',
+		name: 'CSS',
 		icon: './assets/css3.svg',
+		color: '#0170ba'
 	}, {
-		name: 'ReactJS',
+		name: 'Firebase',
 		icon: './assets/firebase.svg',
+		color: '#f5820b'
 	}, {
-		name: 'ReactJS',
+		name: 'HTML',
 		icon: './assets/html5.svg',
+		color: '#e34c26'
 	}, {
-		name: 'ReactJS',
+		name: 'Javascript',
 		icon: './assets/javascript.svg',
+		color: '#f5de19'
 	}, {
-		name: 'ReactJS',
+		name: 'Jquery',
 		icon: './assets/jquery.svg',
+		color: '#1169ad'
 	}, {
-		name: 'ReactJS',
+		name: 'MongoDB',
 		icon: './assets/mongodb.svg',
+		color: '#449a45'
 	}, {
 		name: 'NodeJS',
 		icon: './assets/node-dot-js.svg',
+		color: '#77b063'
 	}, {
-		name: 'ReactJS',
+		name: 'Python',
 		icon: './assets/python.svg',
+		color: '#417bc4'
 	}, {
 		name: 'ReactJS',
 		icon: './assets/react.svg',
+		color: '#53c1de'
 	}]
 };

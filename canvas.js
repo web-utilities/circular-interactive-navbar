@@ -47,7 +47,7 @@ class Navbar {
 			const position = this.getNextPosition(option.position, option.moving ? option.speed : 0, true);
 			option.position = position;
 			ctx.lineWidth = 5;
-			ctx.strokeStyle = '#cf23c3';
+			ctx.strokeStyle = option.color;
 			ctx.fillStyle = '#fff';
 			ctx.beginPath();
 			ctx.arc(position.x, position.y, option.radius, 0, Math.PI * 2, false);
