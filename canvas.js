@@ -12,6 +12,8 @@ class Navbar {
 	constructor(radius, options) {
 		this.radius = radius;
 		this.options = options;
+		this.selected = options[0];
+		this.knowledgePercent = 0;
 		for (let option of this.options) {
 			option.position = this.randomPointOnBoundary;
 			option.iconImage = new Image();
@@ -53,9 +55,35 @@ class Navbar {
 			ctx.arc(position.x, position.y, option.radius, 0, Math.PI * 2, false);
 			ctx.fill();
 			ctx.stroke();
+
 			ctx.save();
 			ctx.translate(position.x, position.y);
 			ctx.drawImage(option.iconImage, -option.radius * 0.6, -option.radius * 0.6, option.radius * 1.2, option.radius * 1.2);
+			ctx.restore();
+
+			ctx.save();
+			const selectedRadius = config.selectedRadius;
+			if (this.knowledgePercent < this.selected.knowledge) {
+				this.knowledgePercent += 0.1;
+			} else if (this.knowledgePercent > this.selected.knowledge) {
+				this.knowledgePercent -= 0.1;
+			}
+			ctx.strokeStyle = this.selected.color;
+			ctx.lineWidth = 20;
+			ctx.fillStyle = this.selected.color;
+			ctx.globalAlpha = 0.01;
+			ctx.textAlign = 'center';
+			ctx.beginPath();
+			ctx.arc(0, 0, selectedRadius, 0, Math.PI * 2, false);
+			ctx.stroke();
+			ctx.globalAlpha = 1;
+			ctx.beginPath();
+			ctx.arc(0, 0, selectedRadius, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 / 100 * this.knowledgePercent), false);
+			ctx.stroke();
+			ctx.drawImage(this.selected.iconImage, -selectedRadius / 4, -selectedRadius * 0.4, selectedRadius / 2, selectedRadius / 2);
+			ctx.fillStyle = '#777';
+			ctx.font = '18px arial';
+			ctx.fillText(this.selected.name, 0, selectedRadius * 0.3, selectedRadius);
 			ctx.restore();
 		}
 	}
@@ -64,6 +92,7 @@ class Navbar {
 		this.draw();
 		requestAnimationFrame(this.animate);
 	}
+
 }
 
 const getMousePos = e => {
@@ -77,7 +106,6 @@ const getMousePos = e => {
 const getDistance = (pos1, pos2) => {
 	return Math.sqrt(Math.pow(pos1.x - pos2.x, 2) + Math.pow(pos1.y - pos2.y, 2));
 }
-
 
 
 ctx.translate(CANVAS_SIZE / 2, CANVAS_SIZE / 2);
@@ -105,5 +133,24 @@ canvas.addEventListener('mousemove', e => {
 		const temp = navbar.options[onTop];
 		navbar.options.splice(onTop, 1);
 		navbar.options.push(temp);
+		document.body.style.cursor = 'pointer';
+	} else {
+		document.body.style.cursor = 'default';
+	}
+});
+
+canvas.addEventListener('click', (e) => {
+	let mousePos = getMousePos(e);
+	let onTop = -1;
+	navbar.options.map((option, i) => {
+		if (getDistance(mousePos, {
+			x: option.position.x + CANVAS_SIZE / 2, 
+			y: option.position.y + CANVAS_SIZE / 2
+		}) < option.radius) {
+			onTop = i;
+		}
+	});
+	if (onTop !== -1) {
+		navbar.selected = navbar.options[onTop];
 	}
 });
