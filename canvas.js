@@ -24,6 +24,7 @@ class Navbar {
 	
 	get randomPointOnBoundary() {
 		const theta = Math.random() * Math.PI * 2;
+		const randomOffset = Math.random() * config.boundaryRandomness + (1 - config.boundaryRandomness / 2); 
 		return {
 			x: this.radius * randomOffset * Math.cos(theta),
 			y: this.radius * randomOffset *  Math.sin(theta)

@@ -2,8 +2,9 @@ export default {
 	canvasSize: 600,
 	navbarRadius: 200,
 	optionRadius: 25,
+	boundaryRandomness: 0.1,
 	options: [{
-		name: 'NodeJS',
+		name: 'Bootstrap',
 		icon: './assets/bootstrap.svg',
 	}, {
 		name: 'ReactJS',
@@ -30,7 +31,7 @@ export default {
 		name: 'ReactJS',
 		icon: './assets/mongodb.svg',
 	}, {
-		name: 'ReactJS',
+		name: 'NodeJS',
 		icon: './assets/node-dot-js.svg',
 	}, {
 		name: 'ReactJS',
